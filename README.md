@@ -205,13 +205,4 @@ recipe_fyp/
 
 This project is created for educational purposes as a Final Year Project.
 
-## 📞 Support
-
-For technical support or questions:
-- **Email**: wilbert220602@gmail.com
-- **Phone**: +6019 857 8167
-- **Institution**: UMSKAL, Labuan 87000, Malaysia
-
----
-
 **RecipeCraft** - Discover recipes tailored to your taste! 🍽️✨
