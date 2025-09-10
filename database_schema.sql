@@ -62,8 +62,9 @@ INSERT INTO categories (name, slug, description) VALUES
 ('Traditional Food', 'traditional-food', 'Cultural and traditional recipes from around the world');
 
 -- Insert sample admin user (password: admin123)
+
 INSERT INTO users (name, email, password, role) VALUES
-('Admin User', 'admin@recipecraft.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+('Admin User', 'admin@recipecraft.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'admin');
 
 -- Insert sample recipes
 INSERT INTO recipes (title, description, ingredients, steps, category_id, image, prep_time) VALUES

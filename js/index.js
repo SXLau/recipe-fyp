@@ -58,48 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Login form submission
     loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-password').value;
-        
-        if (!email || !password) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        console.log('Login attempt with:', { email, password });
-        window.location.href = 'home.html';
-            loginModal.style.display = 'none';
+        // Let the form submit naturally to login.php
+        // No preventDefault() needed
     });
 
     // Register form submission
     registerForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('register-name').value;
-        const email = document.getElementById('register-email').value;
-        const password = document.getElementById('register-password').value;
-        const confirmPassword = document.getElementById('register-confirm').value;
-        
-        if (!name || !email || !password || !confirmPassword) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            alert('Passwords do not match');
-            return;
-        }
-        
-        if (password.length < 6) {
-            alert('Password must be at least 6 characters');
-            return;
-        }
-        
-        console.log('Registration attempt with:', { name, email, password });
-        alert('Registration successful! Please login.');
-        registerModal.style.display = 'none';
-        loginModal.style.display = 'block';
-        registerForm.reset();
+        // Let the form submit naturally to register.php
+        // No preventDefault() needed
     });
 
     // Features animation (keep this from previous version)

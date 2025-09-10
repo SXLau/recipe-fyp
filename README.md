@@ -48,19 +48,29 @@ A full-stack PHP-based food recipe recommendation system with user authenticatio
 2. Start Apache and MySQL services
 3. Ensure PHP version is 8.0 or higher
 
-### 2. Database Setup
-1. Open phpMyAdmin (http://localhost/phpmyadmin)
-2. Create a new database named `food_recipes`
-3. Import the `database_schema.sql` file
-4. Verify all tables are created successfully
-
-### 3. Project Setup
+### 2. Project Setup
 1. Clone or download this project to `htdocs` folder
 2. Navigate to project directory: `C:\xampp\htdocs\recipe_fyp\`
 3. Ensure all PHP files are in place
 4. Verify CSS and JS folders contain styling files
 
-### 4. Configuration
+### 3. Database Setup (Automated)
+1. **Run the setup script**: Navigate to `http://localhost/recipe_fyp/setup.php`
+2. **Follow the setup wizard**:
+   - The script will create the database automatically
+   - Create all required tables
+   - Insert sample data (categories, recipes)
+   - Create admin user with proper password hash
+3. **Delete setup.php** after successful setup for security
+
+### 4. Manual Database Setup (Alternative)
+If you prefer manual setup:
+1. Open phpMyAdmin (http://localhost/phpmyadmin)
+2. Create a new database named `food_recipes`
+3. Import the `database_schema.sql` file
+4. Verify all tables are created successfully
+
+### 5. Configuration
 1. Check database connection in `db.php`
 2. Default credentials:
    - Host: localhost
@@ -84,27 +94,44 @@ A full-stack PHP-based food recipe recommendation system with user authenticatio
 
 ```
 recipe_fyp/
-├── admin/                  # Admin dashboard
-│   ├── index.php          # Admin home
-│   ├── login.php          # Admin login
-│   └── logout.php         # Admin logout
-├── css/                   # Stylesheets (unchanged)
-├── js/                    # JavaScript files (unchanged)
-├── db.php                 # Database connection
-├── session.php            # Session management
-├── index.php              # Landing page
-├── register.php           # User registration
-├── login.php              # User login
-├── logout.php             # User logout
-├── preferences.php        # Preference selection
-├── main.php               # Main recipes page
-├── personalized.php       # Personalized recommendations
-├── categories.php         # Category browsing
-├── top_rated.php          # Top rated recipes
-├── recipe.php             # Individual recipe page
-├── profile.php            # User profile
-├── database_schema.sql    # Database structure
-└── README.md              # This file
+├── admin/                          # Admin dashboard
+│   ├── index.php                  # Admin dashboard home
+│   ├── login.php                  # Admin login page
+│   ├── logout.php                 # Admin logout
+│   ├── users.php                  # User management
+│   ├── recipes.php                # Recipe management
+│   ├── categories.php             # Category management
+│   ├── analytics.php              # Analytics dashboard
+│   ├── get_user_preferences.php   # AJAX helper for user preferences
+│   ├── get_recipe.php             # AJAX helper for recipe data
+│   └── get_category.php           # AJAX helper for category data
+├── css/                           # Stylesheets
+│   ├── index.css                  # Registration, login, preferences
+│   ├── home.css                   # Main pages, personalized, categories
+│   ├── ranking.css                # Top-rated page
+│   ├── recipe.css                 # Recipe details, profile
+│   └── admin.css                  # All admin pages
+├── js/                            # JavaScript files
+│   ├── index.js                   # Landing page functionality
+│   ├── home.js                    # Main pages functionality
+│   ├── ranking.js                 # Top-rated page functionality
+│   └── admin.js                   # Admin dashboard functionality
+├── setup.php                      # Database setup script (DELETE AFTER USE)
+├── db.php                         # Database connection
+├── session.php                    # Session management
+├── index.php                      # Landing page
+├── register.php                   # User registration
+├── login.php                      # User login
+├── logout.php                     # User logout
+├── preferences.php                # Preference selection
+├── main.php                       # Main recipes page
+├── personalized.php               # Personalized recommendations
+├── categories.php                 # Category browsing
+├── top_rated.php                  # Top rated recipes
+├── recipe.php                     # Individual recipe page
+├── profile.php                    # User profile
+├── database_schema.sql            # Database structure (manual setup)
+└── README.md                      # This file
 ```
 
 ## 🗄️ Database Schema
@@ -170,6 +197,61 @@ recipe_fyp/
 2. **Access System**: Navigate to http://localhost/recipe_fyp/
 3. **Admin Access**: Use admin credentials to access dashboard
 4. **User Testing**: Register new accounts and test features
+
+## 🧪 Testing & Verification
+
+### Quick Setup Test
+1. **Run Setup Script**: Navigate to `http://localhost/recipe_fyp/setup.php`
+2. **Verify Setup**: The script will automatically test and create everything
+3. **Delete Setup File**: Remove `setup.php` after successful setup
+
+### Manual Testing Checklist
+1. **User Registration & Login**
+   - [ ] Register new user account at `register.php`
+   - [ ] Select food preferences
+   - [ ] Login with credentials
+   - [ ] Access personalized recipes
+
+2. **Recipe Features**
+   - [ ] Browse all recipes (`main.php`)
+   - [ ] View recipe details
+   - [ ] Rate recipes (1-5 stars)
+   - [ ] View top-rated recipes (`top_rated.php`)
+   - [ ] Browse by categories (`categories.php`)
+
+3. **Admin Features**
+   - [ ] Admin login (`admin/login.php`) with admin@recipecraft.com / admin123
+   - [ ] View dashboard statistics
+   - [ ] Manage users (`admin/users.php`)
+   - [ ] Add/edit/delete recipes (`admin/recipes.php`)
+   - [ ] Manage categories (`admin/categories.php`)
+   - [ ] View analytics (`admin/analytics.php`)
+
+## 🔧 Recent Updates (Latest Version)
+
+### New Features:
+1. **✅ Automated Setup Script**: Created `setup.php` for easy database setup
+2. **✅ Complete Admin Dashboard**: Full CRUD operations for users, recipes, categories
+3. **✅ Advanced Analytics**: Charts and statistics for admin insights
+4. **✅ AJAX Helpers**: Dynamic content loading for admin features
+
+### Fixed Issues:
+1. **✅ Admin Password Hash**: Proper PHP password_hash() method implementation
+2. **✅ Login Form Submission**: Fixed JavaScript form handling
+3. **✅ CSS Organization**: All inline styles moved to external CSS files
+4. **✅ File Structure**: Complete and properly organized codebase
+
+### Setup Improvements:
+- **Automated Database Creation**: Setup script creates database, tables, and sample data
+- **Admin User Creation**: Automatically creates admin with proper password hash
+- **Sample Data**: Includes categories and recipes for immediate testing
+- **Security**: Setup script should be deleted after use
+
+### Code Quality:
+- **Clean Architecture**: Proper separation of concerns
+- **Security**: Password hashing, SQL injection prevention, XSS protection
+- **Maintainability**: Organized CSS files, modular PHP structure
+- **User Experience**: Responsive design, intuitive navigation
 
 ## 🔧 Troubleshooting
 
