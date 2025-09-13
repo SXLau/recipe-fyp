@@ -23,8 +23,8 @@ require_once 'db.php';
                         <li><a href="profile.php">Profile</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
-                        <li><a href="#" id="login-btn">Login</a></li>
-                        <li><a href="#" id="signup-btn" class="btn">Sign Up</a></li>
+                        <li><a href="login.php">Login</a></li>
+                        <li><a href="register.php" class="btn">Sign Up</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>
@@ -68,55 +68,6 @@ require_once 'db.php';
         </section>
     </main>
 
-    <?php if (!is_logged_in()): ?>
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3>Login</h3>
-            <form id="login" action="login.php" method="POST">
-                <div class="form-group">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit">Login</button>
-                <p class="form-toggle">Don't have an account? <a href="#" id="show-register">Sign Up</a></p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Register Modal -->
-    <div class="modal" id="register-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3>Sign Up</h3>
-            <form id="register" action="register.php" method="POST">
-                <div class="form-group">
-                    <label for="register-name">Full Name</label>
-                    <input type="text" id="register-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-email">Email</label>
-                    <input type="email" id="register-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-password">Password</label>
-                    <input type="password" id="register-password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-confirm">Confirm Password</label>
-                    <input type="password" id="register-confirm" name="confirm_password" required>
-                </div>
-                <button type="submit">Register</button>
-                <p class="form-toggle">Already have an account? <a href="#" id="show-login">Login</a></p>
-            </form>
-        </div>
-    </div>
-    <?php endif; ?>
 
     <footer>
         <div class="container">
