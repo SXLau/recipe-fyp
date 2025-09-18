@@ -86,7 +86,7 @@ nav ul li a:hover, nav ul li a.active {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 180px 0 100px;
+    padding: 140px 0 80px;
     margin-top: 60px;
 }
 
@@ -400,7 +400,7 @@ footer .container {
     }
 
     .hero {
-        padding: 150px 0 80px;
+        padding: 110px 0 60px;
     }
 
     .hero h2 {

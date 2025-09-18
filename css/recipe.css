@@ -2,9 +2,9 @@
 
 /* Recipe Hero Section */
 .recipe-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #ff6b6b;
     color: white;
-    padding: 40px 0;
+    padding: 140px 0 80px;
     text-align: center;
 }
 
@@ -306,9 +306,9 @@
 /* ===== PROFILE PAGE STYLES ===== */
 
 .profile-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #ff6b6b;
     color: white;
-    padding: 40px 0;
+    padding: 100px 0 60px;
     text-align: center;
 }
 
@@ -523,6 +523,13 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .recipe-hero {
+        padding: 110px 0 60px;
+    }
+
+    .profile-hero {
+        padding: 80px 0 40px;
+    }
     .recipe-main {
         grid-template-columns: 1fr;
     }
