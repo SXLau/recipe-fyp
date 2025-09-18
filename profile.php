@@ -108,7 +108,7 @@ $recent_ratings = $stmt->get_result();
                     </div>
 
                     <div class="profile-info">
-                        <p><strong>Member since:</strong><br><?php echo date('F Y', strtotime($user['created_at'])); ?></p>
+                        <p><strong>Member since:</strong><br><?php echo $user['created_at']; ?></p>
                         <p><strong>Preferences:</strong><br><?php echo count($user_preferences); ?> categories</p>
                     </div>
                 </div>
