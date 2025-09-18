@@ -15,6 +15,7 @@ require_once 'db.php';
     <header>
         <div class="container">
             <h1 class="logo">RecipeCraft</h1>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
                     <?php if (is_logged_in()): ?>
@@ -82,5 +83,17 @@ require_once 'db.php';
     </footer>
 
     <script src="js/index.js"></script>
+    <script>
+        // Mobile nav toggle
+        (function(){
+            var toggle = document.querySelector('.nav-toggle');
+            var header = document.querySelector('header');
+            if (toggle && header) {
+                toggle.addEventListener('click', function(){
+                    header.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

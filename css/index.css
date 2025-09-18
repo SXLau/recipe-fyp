@@ -248,6 +248,46 @@ footer .container {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .form-container {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .recipe-card img {
+        height: 160px;
+    }
+}
+
+/* Responsive Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        color: #333;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        padding: 10px 0;
+    }
+    header.open nav ul {
+        display: flex;
+    }
 }
 
 /* Add these new styles to your existing CSS file */

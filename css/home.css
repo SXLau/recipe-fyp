@@ -411,6 +411,81 @@ footer .container {
         flex-direction: column;
         gap: 20px;
     }
+
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-bar input {
+        border-radius: 30px;
+    }
+
+    .search-bar button {
+        width: 100%;
+        border-radius: 30px;
+        padding: 12px 20px;
+    }
+
+    .categories {
+        padding: 40px 0;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .category-card img {
+        height: 160px;
+    }
+
+    .category-dishes {
+        padding: 40px 0;
+    }
+
+    .dishes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Responsive Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        color: #333;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        padding: 10px 0;
+    }
+    header.open nav ul {
+        display: flex;
+    }
 }
 
 /* Rating Modal Styles */
@@ -489,7 +564,7 @@ footer .container {
 
 /* Main Pages - Personalized, Categories, etc. */
 .preferences-summary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ff6b6b;
     color: white;
     padding: 30px 0;
     margin-bottom: 40px;
@@ -562,9 +637,11 @@ footer .container {
 
 /* Category Pages */
 .category-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px 0;
+    padding: 140px 0 80px;
     text-align: center;
 }
 
@@ -725,9 +802,11 @@ footer .container {
 /* ===== PERSONALIZED PAGE STYLES ===== */
 
 .preferences-summary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 30px 0;
+    padding: 140px 0 80px;
     margin-bottom: 40px;
 }
 

@@ -92,6 +92,7 @@ $user_preferences = get_user_preferences($user_id);
     <header>
         <div class="container">
             <h1 class="logo">RecipeCraft</h1>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
                     <li><a href="main.php" class="nav-btn">Recipes</a></li>
@@ -281,6 +282,18 @@ $user_preferences = get_user_preferences($user_id);
             </div>
         </div>
     </footer>
+    <script>
+        // Mobile nav toggle
+        (function(){
+            var toggle = document.querySelector('.nav-toggle');
+            var header = document.querySelector('header');
+            if (toggle && header) {
+                toggle.addEventListener('click', function(){
+                    header.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
 
     <script>
         // Star rating functionality

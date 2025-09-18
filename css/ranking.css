@@ -265,6 +265,50 @@ footer .container {
         width: 100%;
         max-width: 200px;
     }
+
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .ranking-section {
+        padding: 40px 0;
+    }
+
+    .ranking-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .ranking-item img {
+        height: 160px;
+    }
+}
+
+/* Responsive Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        color: #333;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        padding: 10px 0;
+    }
+    header.open nav ul {
+        display: flex;
+    }
 }
 
 .ranking-meta {

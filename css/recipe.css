@@ -2,7 +2,9 @@
 
 /* Recipe Hero Section */
 .recipe-hero {
-    background-color: #ff6b6b;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
     color: white;
     padding: 140px 0 80px;
     text-align: center;
@@ -306,9 +308,11 @@
 /* ===== PROFILE PAGE STYLES ===== */
 
 .profile-hero {
-    background-color: #ff6b6b;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 100px 0 60px;
+    padding: 140px 0 80px;
     text-align: center;
 }
 
@@ -535,7 +539,7 @@
     }
     
     .recipe-container {
-        padding: 20px;
+        padding: 15px;
     }
     
     .profile-grid {
@@ -543,6 +547,48 @@
     }
     
     .profile-container {
+        padding: 15px;
+    }
+
+    .recipe-image img {
+        height: 240px;
+    }
+
+    .recipe-details,
+    .profile-sidebar,
+    .profile-main,
+    .rating-section {
         padding: 20px;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Responsive Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        color: #333;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        padding: 10px 0;
+    }
+    header.open nav ul {
+        display: flex;
     }
 }

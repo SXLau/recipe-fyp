@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <div class="container">
             <h1 class="logo">RecipeCraft</h1>
+            <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
