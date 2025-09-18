@@ -106,11 +106,6 @@ $recent_ratings = $stmt->get_result();
                             <div class="stat-label">Avg Rating</div>
                         </div>
                     </div>
-
-                    <div class="profile-info">
-                        <p><strong>Member since:</strong><br><?php echo $user['created_at']; ?></p>
-                        <p><strong>Preferences:</strong><br><?php echo count($user_preferences); ?> categories</p>
-                    </div>
                 </div>
 
                 <!-- Profile Main Content -->

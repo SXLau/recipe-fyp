@@ -1,3 +1,19 @@
+/* Ensure logo and toggle sit above overlay */
+.logo { position: relative; z-index: 1600; }
+.nav-toggle { position: relative; z-index: 1600; }
+/* Neutralize .nav-btn style in header */
+header nav .nav-btn {
+    background: transparent;
+    color: #333 !important;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+header nav .nav-btn:hover,
+header nav .nav-btn.active {
+    background: rgba(0,0,0,0.06);
+    color: #ff6b6b !important;
+}
 /* ===== RECIPE PAGE STYLES ===== */
 
 /* Recipe Hero Section */
@@ -526,6 +542,13 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+    }
+
     .recipe-hero {
         padding: 110px 0 60px;
     }
@@ -564,6 +587,10 @@
         grid-template-columns: 1fr;
         gap: 20px;
     }
+    .nav-btn {
+        padding: 8px 14px;
+        margin: 0 2px;
+    }
 }
 
 /* Responsive Navigation Toggle */
@@ -580,14 +607,25 @@
         display: block;
         color: #333;
     }
+    nav { margin-left: 0; position: static; width: 100%; }
     nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
+        position: fixed;
+        inset: 0;
         background: #fff;
-        padding: 10px 0;
+        padding: 80px 20px 20px;
+        display: block;
+        overflow-y: auto;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 220ms ease, transform 220ms ease;
+        z-index: 1100;
     }
     header.open nav ul {
-        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 }
