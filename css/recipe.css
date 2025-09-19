@@ -600,6 +600,9 @@ header nav .nav-btn.active {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    position: absolute;
+    z-index: 1600;
+    right: 25px;
 }
 
 @media (max-width: 768px) {

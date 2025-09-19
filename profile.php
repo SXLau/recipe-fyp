@@ -142,41 +142,6 @@ $recent_ratings = $stmt->get_result();
                                 <input type="checkbox" id="traditional-food" name="preferences[]" value="traditional-food" <?php echo in_array('traditional-food', $user_preferences) ? 'checked' : ''; ?>>
                                 <label for="traditional-food">Traditional Food</label>
                             </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="vegetarian" name="preferences[]" value="vegetarian" <?php echo in_array('vegetarian', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="vegetarian">Vegetarian</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="vegan" name="preferences[]" value="vegan" <?php echo in_array('vegan', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="vegan">Vegan</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="gluten-free" name="preferences[]" value="gluten-free" <?php echo in_array('gluten-free', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="gluten-free">Gluten-Free</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="spicy" name="preferences[]" value="spicy" <?php echo in_array('spicy', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="spicy">Spicy Food</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="seafood" name="preferences[]" value="seafood" <?php echo in_array('seafood', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="seafood">Seafood</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="breakfast" name="preferences[]" value="breakfast" <?php echo in_array('breakfast', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="breakfast">Breakfast</label>
-                            </div>
-                            
-                            <div class="preference-item">
-                                <input type="checkbox" id="soup" name="preferences[]" value="soup" <?php echo in_array('soup', $user_preferences) ? 'checked' : ''; ?>>
-                                <label for="soup">Soup & Stew</label>
-                            </div>
                         </div>
                         
                         <button type="submit" class="save-preferences">

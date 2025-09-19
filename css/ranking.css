@@ -319,8 +319,9 @@ footer .container {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    position: relative;
+    position: absolute;
     z-index: 1600;
+    right: 25px;
 }
 
 @media (max-width: 768px) {
