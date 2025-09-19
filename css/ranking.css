@@ -127,7 +127,6 @@ nav ul li a:hover, nav ul li a.active {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 30px;
     justify-content: center;
 }
 
@@ -382,17 +381,16 @@ footer .container {
 
 .ranking-filters {
     background: white;
-    padding: 20px 0;
+    padding: 40px 0;
     box-shadow: none;
-    position: static;
 }
 
 .filter-btn {
     background: #f8f9fa;
     border: 2px solid #e9ecef;
     color: #6c757d;
-    padding: 10px 20px;
-    margin: 0 10px;
+    padding: 15px 30px;
+    margin: 0 20px;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -407,7 +405,7 @@ footer .container {
 }
 
 .ranking-section {
-    padding: 40px 0;
+    padding: 80px 0;
     background: #f8f9fa;
 }
 
