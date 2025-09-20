@@ -15,9 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name'] ?? '');
             $slug = trim($_POST['slug'] ?? '');
             $description = trim($_POST['description'] ?? '');
+            $image_url = trim($_POST['image_url'] ?? '');
+            if ($image_url === '') {
+                $image_url = null;
+            }
             
             if (empty($name) || empty($slug)) {
                 $error = "Name and slug are required.";
+            } elseif ($image_url && !filter_var($image_url, FILTER_VALIDATE_URL)) {
+                $error = "Please provide a valid image URL.";
             } else {
                 // Check if slug already exists
                 $stmt = $conn->prepare("SELECT id FROM categories WHERE slug = ?");
@@ -26,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($stmt->get_result()->num_rows > 0) {
                     $error = "Slug already exists. Please choose a different one.";
                 } else {
-                    $stmt = $conn->prepare("INSERT INTO categories (name, slug, description) VALUES (?, ?, ?)");
-                    $stmt->bind_param("sss", $name, $slug, $description);
+                    $stmt = $conn->prepare("INSERT INTO categories (name, slug, description, image_url) VALUES (?, ?, ?, ?)");
+                    $stmt->bind_param("ssss", $name, $slug, $description, $image_url);
                     if ($stmt->execute()) {
                         $message = "Category added successfully!";
                     } else {
@@ -42,9 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name'] ?? '');
             $slug = trim($_POST['slug'] ?? '');
             $description = trim($_POST['description'] ?? '');
+            $image_url = trim($_POST['image_url'] ?? '');
+            if ($image_url === '') {
+                $image_url = null;
+            }
             
             if (!$id || empty($name) || empty($slug)) {
                 $error = "Invalid data provided.";
+            } elseif ($image_url && !filter_var($image_url, FILTER_VALIDATE_URL)) {
+                $error = "Please provide a valid image URL.";
             } else {
                 // Check if slug already exists (excluding current category)
                 $stmt = $conn->prepare("SELECT id FROM categories WHERE slug = ? AND id != ?");
@@ -53,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($stmt->get_result()->num_rows > 0) {
                     $error = "Slug already exists. Please choose a different one.";
                 } else {
-                    $stmt = $conn->prepare("UPDATE categories SET name=?, slug=?, description=? WHERE id=?");
-                    $stmt->bind_param("sssi", $name, $slug, $description, $id);
+                    $stmt = $conn->prepare("UPDATE categories SET name=?, slug=?, description=?, image_url=? WHERE id=?");
+                    $stmt->bind_param("ssssi", $name, $slug, $description, $image_url, $id);
                     if ($stmt->execute()) {
                         $message = "Category updated successfully!";
                     } else {
@@ -169,8 +181,13 @@ $categories_result = $conn->query($categories_query);
 
                 <!-- Categories Grid -->
                 <div class="categories-grid">
-                    <?php while ($category = $categories_result->fetch_assoc()): ?>
+                    <?php while ($category = $categories_result->fetch_assoc()):
+                        $category_image = $category['image_url'] ?: 'https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80';
+                    ?>
                         <div class="category-card">
+                            <div class="category-thumbnail">
+                                <img src="<?php echo htmlspecialchars($category_image); ?>" alt="<?php echo htmlspecialchars($category['name']); ?>">
+                            </div>
                             <div class="category-header">
                                 <h3><?php echo htmlspecialchars($category['name']); ?></h3>
                                 <div class="category-actions">
@@ -228,6 +245,12 @@ $categories_result = $conn->query($categories_query);
                         <label for="slug">Slug *</label>
                         <input type="text" id="slug" name="slug" required placeholder="e.g., main-dishes">
                         <small class="form-help">URL-friendly version of the name (lowercase, hyphens instead of spaces)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="image_url">Image URL</label>
+                        <input type="url" id="image_url" name="image_url" placeholder="https://example.com/photo.jpg">
+                        <small class="form-help">Paste a direct image link. Leave empty to use the default image.</small>
                     </div>
                     
                     <div class="form-group">
@@ -298,6 +321,7 @@ $categories_result = $conn->query($categories_query);
             document.getElementById('form-action').value = 'add';
             document.getElementById('category-id').value = '';
             document.getElementById('category-form').reset();
+            document.getElementById('image_url').value = '';
             document.getElementById('category-modal').style.display = 'flex';
         }
 
@@ -311,6 +335,7 @@ $categories_result = $conn->query($categories_query);
                     document.getElementById('category-id').value = categoryId;
                     document.getElementById('name').value = data.name;
                     document.getElementById('slug').value = data.slug;
+                    document.getElementById('image_url').value = data.image_url || '';
                     document.getElementById('description').value = data.description;
                     document.getElementById('category-modal').style.display = 'flex';
                 })

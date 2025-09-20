@@ -224,6 +224,23 @@ body.admin-login {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.category-thumbnail {
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .category-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
