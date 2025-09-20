@@ -26,20 +26,6 @@ A full-stack PHP-based food recipe recommendation system with user authenticatio
 2. **Ingredient-based**: Related recipes from the same category
 3. **Rating-based**: Top-rated recipes sorted by community ratings
 
-## 🛠️ Technical Stack
-
-- **Backend**: PHP 8+, MySQL
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Database**: MySQL with prepared statements
-- **Security**: Password hashing, SQL injection prevention, session management
-- **Server**: XAMPP (Apache, PHP, MySQL)
-
-## 📋 System Requirements
-
-- XAMPP (Apache, PHP 8+, MySQL)
-- Web browser with JavaScript enabled
-- Minimum 512MB RAM
-- 100MB disk space
 
 ## 🚀 Installation
 
@@ -142,20 +128,6 @@ recipe_fyp/
 - **recipes**: Recipe information
 - **ratings**: User ratings for recipes
 
-### Key Features
-- Foreign key relationships
-- JSON storage for user preferences
-- Timestamp tracking
-- Unique constraints for ratings
-
-## 🔒 Security Features
-
-- **Password Hashing**: Uses PHP's `password_hash()` and `password_verify()`
-- **SQL Injection Prevention**: Prepared statements throughout
-- **Session Management**: Secure PHP sessions
-- **Input Validation**: Server-side validation for all forms
-- **XSS Prevention**: HTML escaping for user input
-
 ## 🎯 Recommendation Algorithms
 
 ### 1. Preference-based Recommendation
@@ -173,13 +145,6 @@ recipe_fyp/
 - Sorts recipes by rating and rating count
 - Provides category filtering for rankings
 
-## 🎨 UI/UX Features
-
-- **Responsive Design**: Works on desktop and mobile
-- **Modern Interface**: Clean, intuitive design
-- **Interactive Elements**: Hover effects, smooth transitions
-- **Visual Feedback**: Loading states, success/error messages
-- **Accessibility**: Clear navigation, readable fonts
 
 ## 📱 User Journey
 
@@ -198,90 +163,6 @@ recipe_fyp/
 3. **Admin Access**: Use admin credentials to access dashboard
 4. **User Testing**: Register new accounts and test features
 
-## 🧪 Testing & Verification
-
-### Quick Setup Test
-1. **Run Setup Script**: Navigate to `http://localhost/recipe_fyp/setup.php`
-2. **Verify Setup**: The script will automatically test and create everything
-3. **Delete Setup File**: Remove `setup.php` after successful setup
-
-### Manual Testing Checklist
-1. **User Registration & Login**
-   - [ ] Register new user account at `register.php`
-   - [ ] Select food preferences
-   - [ ] Login with credentials
-   - [ ] Access personalized recipes
-
-2. **Recipe Features**
-   - [ ] Browse all recipes (`main.php`)
-   - [ ] View recipe details
-   - [ ] Rate recipes (1-5 stars)
-   - [ ] View top-rated recipes (`top_rated.php`)
-   - [ ] Browse by categories (`categories.php`)
-
-3. **Admin Features**
-   - [ ] Admin login (`admin/login.php`) with admin@recipecraft.com / admin123
-   - [ ] View dashboard statistics
-   - [ ] Manage users (`admin/users.php`)
-   - [ ] Add/edit/delete recipes (`admin/recipes.php`)
-   - [ ] Manage categories (`admin/categories.php`)
-   - [ ] View analytics (`admin/analytics.php`)
-
-## 🔧 Recent Updates (Latest Version)
-
-### New Features:
-1. **✅ Automated Setup Script**: Created `setup.php` for easy database setup
-2. **✅ Complete Admin Dashboard**: Full CRUD operations for users, recipes, categories
-3. **✅ Advanced Analytics**: Charts and statistics for admin insights
-4. **✅ AJAX Helpers**: Dynamic content loading for admin features
-
-### Fixed Issues:
-1. **✅ Admin Password Hash**: Proper PHP password_hash() method implementation
-2. **✅ Login Form Submission**: Fixed JavaScript form handling
-3. **✅ CSS Organization**: All inline styles moved to external CSS files
-4. **✅ File Structure**: Complete and properly organized codebase
-
-### Setup Improvements:
-- **Automated Database Creation**: Setup script creates database, tables, and sample data
-- **Admin User Creation**: Automatically creates admin with proper password hash
-- **Sample Data**: Includes categories and recipes for immediate testing
-- **Security**: Setup script should be deleted after use
-
-### Code Quality:
-- **Clean Architecture**: Proper separation of concerns
-- **Security**: Password hashing, SQL injection prevention, XSS protection
-- **Maintainability**: Organized CSS files, modular PHP structure
-- **User Experience**: Responsive design, intuitive navigation
-
-## 🔧 Troubleshooting
-
-### Common Issues
-1. **Database Connection Error**: Check XAMPP services and database credentials
-2. **Page Not Found**: Verify file paths and Apache configuration
-3. **Session Issues**: Check PHP session configuration
-4. **Permission Errors**: Ensure proper file permissions
-
-### Debug Mode
-- Check XAMPP error logs
-- Verify PHP error reporting settings
-- Test database queries in phpMyAdmin
-
-## 📈 Future Enhancements
-
-- **Advanced Search**: Ingredient-based search
-- **Social Features**: Recipe sharing, comments
-- **Mobile App**: Native mobile application
-- **AI Recommendations**: Machine learning algorithms
-- **Recipe Import**: Bulk recipe import functionality
-- **Analytics Dashboard**: Advanced user behavior insights
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
 ## 📄 License
 
