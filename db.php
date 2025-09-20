@@ -44,7 +44,17 @@ function get_user_preferences($user_id) {
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    return $row ? json_decode($row['preferences'], true) : [];
+    if (!$row) {
+        return [];
+    }
+
+    $rawPreferences = $row['preferences'];
+    if ($rawPreferences === null || $rawPreferences === '') {
+        return [];
+    }
+
+    $preferences = json_decode($rawPreferences, true);
+    return is_array($preferences) ? $preferences : [];
 }
 
 // Helper function to update user preferences
