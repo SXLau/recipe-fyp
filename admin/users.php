@@ -36,13 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Get all users with their stats
 $users_query = "
     SELECT u.*, 
-           COUNT(DISTINCT r.id) as recipe_count,
-           COUNT(DISTINCT rt.id) as rating_count,
-           COALESCE(AVG(rt.rating), 0) as avg_rating_given
+           COALESCE(rs.recipe_count, 0) AS recipe_count,
+           COALESCE(rs.rating_count, 0) AS rating_count,
+           COALESCE(rs.avg_rating_given, 0) AS avg_rating_given
     FROM users u
-    LEFT JOIN recipes r ON u.id = r.user_id
-    LEFT JOIN ratings rt ON u.id = rt.user_id
-    GROUP BY u.id
+    LEFT JOIN (
+        SELECT user_id,
+               COUNT(*) AS rating_count,
+               COUNT(DISTINCT recipe_id) AS recipe_count,
+               AVG(rating) AS avg_rating_given
+        FROM ratings
+        GROUP BY user_id
+    ) rs ON rs.user_id = u.id
     ORDER BY u.created_at DESC
 ";
 
@@ -82,10 +87,6 @@ $users_result = $conn->query($users_query);
         <div class="main-content">
             <!-- Top Bar -->
             <div class="top-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search users..." id="user-search">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-info">
                     <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     <div class="avatar">
@@ -212,22 +213,6 @@ $users_result = $conn->query($users_query);
     </div>
 
     <script>
-        // Search functionality
-        document.getElementById('user-search').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const tableRows = document.querySelectorAll('#users-table tbody tr');
-            
-            tableRows.forEach(row => {
-                const name = row.cells[1].textContent.toLowerCase();
-                const email = row.cells[2].textContent.toLowerCase();
-                
-                if (name.includes(searchTerm) || email.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
 
         // View user preferences
         function viewUserPreferences(userId) {
@@ -281,3 +266,4 @@ $users_result = $conn->query($users_query);
 
 </body>
 </html>
+

@@ -91,10 +91,6 @@ $category_stats = $conn->query($category_stats_query);
         <!-- Main Content Area -->
         <main class="main-content">
             <header class="top-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-info">
                     <span><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     <div class="avatar">

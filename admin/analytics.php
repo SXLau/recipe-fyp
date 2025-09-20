@@ -99,10 +99,6 @@ $recent_activity_result = $conn->query($recent_activity_query);
         <div class="main-content">
             <!-- Top Bar -->
             <div class="top-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search analytics..." id="analytics-search">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-info">
                     <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     <div class="avatar">

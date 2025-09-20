@@ -146,10 +146,6 @@ $categories_result = $conn->query($categories_query);
         <div class="main-content">
             <!-- Top Bar -->
             <div class="top-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search categories..." id="category-search">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-info">
                     <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     <div class="avatar">
@@ -286,24 +282,6 @@ $categories_result = $conn->query($categories_query);
     </div>
 
     <script>
-        // Search functionality
-        document.getElementById('category-search').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const categoryCards = document.querySelectorAll('.category-card');
-            
-            categoryCards.forEach(card => {
-                const name = card.querySelector('h3').textContent.toLowerCase();
-                const slug = card.querySelector('.category-slug').textContent.toLowerCase();
-                const description = card.querySelector('.category-description')?.textContent.toLowerCase() || '';
-                
-                if (name.includes(searchTerm) || slug.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
         // Auto-generate slug from name
         document.getElementById('name').addEventListener('input', function() {
             const name = this.value;

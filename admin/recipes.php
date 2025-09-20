@@ -72,7 +72,7 @@ $recipes_query = "
     LEFT JOIN categories c ON r.category_id = c.id
     LEFT JOIN ratings rt ON r.id = rt.recipe_id
     GROUP BY r.id
-    ORDER BY r.created_at DESC
+    ORDER BY r.id ASC
 ";
 
 $recipes_result = $conn->query($recipes_query);
@@ -114,10 +114,6 @@ $categories_result = $conn->query("SELECT * FROM categories ORDER BY name");
         <div class="main-content">
             <!-- Top Bar -->
             <div class="top-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search recipes..." id="recipe-search">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-info">
                     <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                     <div class="avatar">
@@ -338,23 +334,6 @@ $categories_result = $conn->query("SELECT * FROM categories ORDER BY name");
     </div>
 
     <script>
-        // Search functionality
-        document.getElementById('recipe-search').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const tableRows = document.querySelectorAll('#recipes-table tbody tr');
-            
-            tableRows.forEach(row => {
-                const title = row.cells[2].textContent.toLowerCase();
-                const category = row.cells[3].textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || category.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
         // Open add modal
         function openAddModal() {
             document.getElementById('modal-title').textContent = 'Add Recipe';
@@ -441,3 +420,4 @@ $categories_result = $conn->query("SELECT * FROM categories ORDER BY name");
 
 </body>
 </html>
+
